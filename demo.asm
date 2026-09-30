@@ -35,6 +35,17 @@ SCR_Y      = 172                    ; scroller top line (24 lines tall)
 QN         = 16                     ; qix history length (power of two)
 
 ; ---------------------------------------------------------------------------
+; The 8088 only has short (+-127 byte) conditional jumps. FASM would silently
+; emit the 386 near form (0F 8x) for longer ones, which crashes on an 8088
+; (0Fh = POP CS). Force the short form so FASM reports an error instead.
+; ---------------------------------------------------------------------------
+irp cc, jo,jno,jb,jc,jnae,jae,jnb,jnc,je,jz,jne,jnz,jbe,jna,ja,jnbe, \
+        js,jns,jp,jpe,jnp,jpo,jl,jnge,jge,jnl,jle,jng,jg,jnle
+{
+    macro cc target \{ cc short target \}
+}
+
+; ---------------------------------------------------------------------------
 ; Text helpers: row, column (centered), color, text, 0
 ; ---------------------------------------------------------------------------
 macro ctext40 row, color, [txt]
@@ -441,6 +452,8 @@ scene_stars:
     mov al, ah
     mov dl, 160
     mul dl
+    mov al, ah                      ; (rnd * 160) / 256 = 0..159
+    xor ah, ah
     shl ax, 1                       ; 0..318
     mov [star_x+bx], ax
     call rand
@@ -697,7 +710,9 @@ scene_qix:
     inc word [frame]
     mov bx, TICKS_SEC * 16
     call scene_done
-    jnc .frame
+    jc .done
+    jmp .frame                      ; too far for a short jump
+.done:
     ret
 
 ; draw line (AX,BX)-(CX,DX) and its horizontal mirror image
