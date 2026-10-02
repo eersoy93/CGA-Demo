@@ -2,8 +2,8 @@
 ;  CGA DEMO - a graphical demo for the IBM PC 5150 with a Color Graphics Adapter
 ;
 ;  Target : 8088 @ 4.77 MHz, CGA, MS-DOS 2.0+
-;  Build  : fasm demo.asm demo.com
-;  Run    : demo            (any key = next part, ESC = quit)
+;  Build  : fasm DEMO.ASM DEMO.COM
+;  Run    : DEMO            (any key = next part, ESC = quit)
 ;
 ;  Parts:
 ;    1. Logo + raster (copper) bars     320x200, 4 colors + per-line background
