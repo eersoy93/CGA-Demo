@@ -13,6 +13,8 @@
 ;    5. Credits                         80x25 text
 ;
 ;  Only 8086/8088 instructions are used.
+;
+;  Written by Erdem Ersoy (eersoy93) with Claude Code.
 ; =============================================================================
 
 format binary as 'com'
