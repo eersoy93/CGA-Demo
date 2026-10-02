@@ -19,12 +19,12 @@ Controls: any key = next part, `ESC` = quit to DOS.
 ## Build
 
 ```
-fasm demo.asm demo.com
+fasm DEMO.ASM DEMO.COM
 ```
 
 ## Run in DOSBox-X
 
-A prebuilt `demo.com` is included. Recommended `dosbox-x.conf` settings:
+A prebuilt `DEMO.COM` is included. Recommended `dosbox-x.conf` settings:
 
 ```ini
 [dosbox]
