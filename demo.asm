@@ -1061,6 +1061,7 @@ txt_credits:
     ctext80 11, 0Eh, 'Part 4   Plasma                        40x25 text, 16 bg colors        '
     ctext80 14, 07h, 'Written in 8086 assembly with the flat assembler (FASM).'
     ctext80 15, 07h, 'Runs on a 4.77 MHz 8088 with CGA, or in DOSBox-X with machine=cga.'
+    ctext80 16, 0Fh, 'Written by Erdem Ersoy (eersoy93) with Claude Code'
     ctext80 18, 0Ah, 'Thanks for watching!'
     ctext80 21, 8Fh, 'Press any key to return to DOS'
     ctext80 23, 01h, 78 dup 0DFh
