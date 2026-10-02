@@ -1,4 +1,4 @@
-# CGA-Demo
+# CGA Demo
 A graphical demo for CGA video cards in IBM 5150 machines. Claude Code was used.
 
 Written in 8086/8088 assembly for [FASM](https://flatassembler.net), produces a
